@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./painting.css">
+    <script defer type="module" src="./components/mondrian.js"></script>
+</head>
+<template id="lab-settings">
+    <form action="POST" name="settings">
+        <div>
+            <input id="gradient" name="gradient" type="checkbox">
+            <label for="gradient">Gradient</label>
+        </div>
+        <div>
+            <input id="gradientFollowPointer" name="gradientFollowPointer" type="checkbox">
+            <label for="gradientFollowPointer">Gradient follow pointer</label>
+        </div>
+    </form>
+</template>
+
+<body>
+    <header>
+        <lab-settings></lab-settings>
+    </header>
+    <main role="main">
+        <ul class="mondrian" is="lab-mondrian" pieces="15"></ul>
+    </main>
+
+</body>
+
+</html>
