@@ -1,5 +1,3 @@
-import { Settings } from './settings.js';
-
 export class MondrianPiece extends HTMLLIElement {
 
     constructor() {
@@ -46,5 +44,3 @@ export class MondrianPiece extends HTMLLIElement {
             this.style.animation = null
     }
 }
-
-window.customElements.define('lab-mondrian-piece', MondrianPiece, { extends: "li" })

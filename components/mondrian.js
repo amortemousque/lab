@@ -1,7 +1,4 @@
-import { Settings } from './settings.js';
-import { MondrianPiece } from './mondrian-piece.js';
-
-class Mondrian extends HTMLUListElement {
+export class Mondrian extends HTMLUListElement {
 
     constructor() {
         super();
@@ -11,7 +8,7 @@ class Mondrian extends HTMLUListElement {
         this.draw();
     }
 
-    attributeChangedCallback(name, oldValue, newValue) {
+    attributeChangedCallback(name) {
         if(name == 'pieces')
             this.draw();
     }
@@ -24,4 +21,3 @@ class Mondrian extends HTMLUListElement {
     }
 }
 
-window.customElements.define('lab-mondrian',Mondrian, { extends: "ul" });

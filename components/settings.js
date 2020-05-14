@@ -1,4 +1,3 @@
-
 export class Settings extends HTMLElement {
 
     constructor() {
@@ -30,4 +29,3 @@ export class Settings extends HTMLElement {
     }
 }
 
-window.customElements.define('lab-settings', Settings);
