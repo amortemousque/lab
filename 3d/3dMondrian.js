@@ -7,6 +7,10 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(95, window.innerWidth / window.innerHeight, 0.1, 1000);
 
 const renderer = new THREE.WebGLRenderer();
+
+renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 0.75;
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
 
@@ -16,8 +20,8 @@ const controls = new OrbitControls(camera, renderer.domElement);
 
 const mondrian = new THREE.Group();
 
-const depth = 0;
-const gap = 0.1;
+const depth = 0.1;
+const gap = 0.15;
 camera.position.z = 5;
 
 const convertUnitToDimension = (uW, uH) => {
@@ -31,7 +35,14 @@ const createCube = (name, uW, uH, color) => {
   let [width, height] = convertUnitToDimension(uW, uH);
   let cube = new THREE.Mesh(
     new THREE.BoxGeometry(width, height, depth),
-    new THREE.MeshBasicMaterial({ color: color })
+    new THREE.MeshPhysicalMaterial({
+      color: color,
+      metalness: 0,
+      roughness: 0.5,
+      clearcoat: 1.0,
+      clearcoatRoughness: 1.5,
+      reflectivity: 1.0,
+    })
   );
   cube.name = name;
   return cube;
@@ -57,6 +68,16 @@ positions.set(createCube("big-yellow", 4, 2, 0xeefe00), { x: "small-white", y: "
 positions.set(createCube("medium-white", 3, 1, 0xffffff), { x: 0, y: "small-blue" });
 
 scene.add(mondrian);
+scene.add(new THREE.AmbientLight(0x222222));
+const particleLight = new THREE.Mesh(
+  new THREE.SphereBufferGeometry(0.1, 0.1, 0.1),
+  new THREE.MeshBasicMaterial({ color: 0xffffff })
+);
+scene.add(particleLight);
+
+var pointLight = new THREE.PointLight(0xffffff, 2, 800);
+particleLight.add(pointLight);
+
 scene.updateMatrixWorld(true);
 
 for (let [cube] of positions) {
@@ -82,20 +103,7 @@ const setPosition = (cube, position) => {
     );
   else cube.position.y = (position.y ?? 0) - height / 2;
 };
-// const calculatePosition = (cube, position) => {
-//   // vector.copy(cube.position);
-//   // cube.parent.worldToLocal(vector);
-//   // console.log(vector);
-//   //  position.setFromMatrixPosition(scene.getObjectByName("cube1").matrixWorld);
 
-//   // alert(position.x + "," + position.y + "," + position.z);
-
-//   if (cube.position.x < position.x && position.x > 0) cube.position.x += 0.03;
-//   if (cube.position.x > position.x && position.x < 0) cube.position.x -= 0.03;
-
-//   if (cube.position.y < position.y && position.y > 0) cube.position.y += 0.03;
-//   if (cube.position.y > position.y && position.y < 0) cube.position.y -= 0.03;
-// };
 for (let [cube, position] of positions) {
   setPosition(cube, position);
 }
@@ -105,12 +113,20 @@ controls.update();
 const animate = function () {
   requestAnimationFrame(animate);
   controls.update();
+  var timer = Date.now() * 0.00025;
 
-  // mondrian.getObjectByName("huge-white").rotation.x += 0.01;
-  // mondrian.getObjectByName("huge-white").rotation.y += 0.01;
-
+  particleLight.position.x = Math.sin(timer * 7) * 3;
+  particleLight.position.y = Math.cos(timer * 5) * 5;
+  particleLight.position.z = Math.cos(timer * 3) * 2;
+  console.log(particleLight.position.z);
   renderer.render(scene, camera);
 };
 
 animate();
 new THREE.Box3().setFromObject(mondrian).getCenter(mondrian.position).multiplyScalar(-1);
+
+window.addEventListener("resize", () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
