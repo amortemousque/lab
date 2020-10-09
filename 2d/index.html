@@ -1,34 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-    <link rel="stylesheet" href="mondrian.css">
-    <script defer type="module" src="mondrian.js"></script>
-</head>
-<template id="lab-settings">
-    <form action="POST" name="settings">
-        <div>
-            <input id="gradient" name="gradient" type="checkbox">
-            <label for="gradient">Gradient</label>
-        </div>
-        <div>
-            <input id="gradientFollowPointer" name="gradientFollowPointer" type="checkbox">
-            <label for="gradientFollowPointer">Gradient follow pointer</label>
-        </div>
-    </form>
-</template>
+    <link rel="stylesheet" href="mondrian.css" />
+    <link rel="stylesheet" href="../components/Switch.css" />
+    <script defer type="module" src="components/index.js"></script>
+    <script defer type="module" src="../components/Switch.js"></script>
 
-<body>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <template id="lab-settings">
+    <form action="POST" name="settings">
+      <div>
+        <input id="gradient" name="gradient" type="checkbox" />
+        <label for="gradient">Gradient</label>
+      </div>
+    </form>
+  </template>
+
+  <body>
     <header>
-        <lab-settings></lab-settings>
+      <div class="switch" is="lab-switch" switchChange="console.log('test')">
+        <button class="button-2D">2D Mondrian</button>
+        <button class="button-3D">3D Mondrian</button>
+      </div>
+      <lab-settings></lab-settings>
     </header>
     <main role="main">
-        <ul class="mondrian" is="lab-mondrian" pieces="15"></ul>
+      <ul class="mondrian" is="lab-mondrian" pieces="15"></ul>
     </main>
-</body>
-
+  </body>
 </html>

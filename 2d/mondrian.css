@@ -5,7 +5,6 @@
   --red: #ff0303;
   --red-darker: #990287;
 
-  
   --white: #fafafa;
   --white-darker: #aeb08b;
 
@@ -16,30 +15,34 @@
   --gutter: 10px;
 }
 
-
-
 @keyframes gradientBG {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-
 body {
-  background-color: black;
+  background-color: rgb(24, 25, 27);
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
 }
 
 main {
   margin: 0 auto;
   max-width: calc(var(--col-min-with) * 7 + (6 * var(--gutter)));
+  max-height: 100px;
 }
 
 .mondrian {
@@ -58,7 +61,6 @@ main {
 li {
   background-size: 300% 300%;
 }
-
 
 li:nth-child(1) {
   --background: var(--blue);
@@ -88,7 +90,8 @@ li:nth-child(4) {
   grid-row: span 4;
   --background: var(--white);
   --background-darker: var(--white-darker);
-  background-color: var(--background);}
+  background-color: var(--background);
+}
 
 li:nth-child(5) {
   grid-column: span 2;

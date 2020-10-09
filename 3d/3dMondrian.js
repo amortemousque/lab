@@ -2,24 +2,30 @@
 // redirect to the newest stable release.
 import * as THREE from "https://unpkg.com/three@0.121.1/build/three.module.js";
 import { OrbitControls } from "https://unpkg.com/three@0.121.1/examples/jsm/controls/OrbitControls.js";
+const container = document.getElementsByTagName("main")[0];
 
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(95, window.innerWidth / window.innerHeight, 0.1, 1000);
+scene.background = new THREE.Color(0x181919);
+const camera = new THREE.PerspectiveCamera(
+  95,
+  container.offsetWidth / container.offsetHeight,
+  0.1,
+  1000
+);
 
 const renderer = new THREE.WebGLRenderer();
 
 renderer.outputEncoding = THREE.sRGBEncoding;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 0.75;
-renderer.setSize(window.innerWidth, window.innerHeight);
+
+renderer.setSize(container.offsetWidth, container.offsetHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
 
-document.body.appendChild(renderer.domElement);
-
+container.appendChild(renderer.domElement);
 const controls = new OrbitControls(camera, renderer.domElement);
 
 const mondrian = new THREE.Group();
-
 const depth = 0.1;
 const gap = 0.15;
 camera.position.z = 5;
@@ -118,7 +124,6 @@ const animate = function () {
   particleLight.position.x = Math.sin(timer * 7) * 3;
   particleLight.position.y = Math.cos(timer * 5) * 5;
   particleLight.position.z = Math.cos(timer * 3) * 2;
-  console.log(particleLight.position.z);
   renderer.render(scene, camera);
 };
 
@@ -126,7 +131,7 @@ animate();
 new THREE.Box3().setFromObject(mondrian).getCenter(mondrian.position).multiplyScalar(-1);
 
 window.addEventListener("resize", () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.aspect = container.offsetWidth / container.offsetHeight;
   camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setSize(container.offsetWidth, container.offsetHeight);
 });
