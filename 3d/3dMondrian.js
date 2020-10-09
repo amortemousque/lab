@@ -7,7 +7,7 @@ const container = document.getElementsByTagName("main")[0];
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x181919);
 const camera = new THREE.PerspectiveCamera(
-  95,
+  90,
   container.offsetWidth / container.offsetHeight,
   0.1,
   1000
@@ -79,6 +79,7 @@ const particleLight = new THREE.Mesh(
   new THREE.SphereBufferGeometry(0.1, 0.1, 0.1),
   new THREE.MeshBasicMaterial({ color: 0xffffff })
 );
+particleLight.position.set(1, 1, 2);
 scene.add(particleLight);
 
 var pointLight = new THREE.PointLight(0xffffff, 2, 800);
@@ -123,7 +124,7 @@ const animate = function () {
 
   particleLight.position.x = Math.sin(timer * 7) * 3;
   particleLight.position.y = Math.cos(timer * 5) * 5;
-  particleLight.position.z = Math.cos(timer * 3) * 2;
+  particleLight.position.z = Math.abs(Math.cos(timer * 3)) * 2 + depth;
   renderer.render(scene, camera);
 };
 

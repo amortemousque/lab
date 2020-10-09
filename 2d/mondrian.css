@@ -11,8 +11,15 @@
   --blue: #0384fc;
   --blue-darker: #041fcf;
 
-  --col-min-with: 90px;
-  --gutter: 10px;
+  --ratio: calc(10vh - 10px - 1.5vh);
+  --gutter: 1.5vh;
+}
+
+@media (orientation: portrait) {
+  :root {
+    --ratio: calc(14.283vw - 2vw);
+    --gutter: 2vw;
+  }
 }
 
 @keyframes gradientBG {
@@ -26,7 +33,9 @@
     background-position: 0% 50%;
   }
 }
-
+ul {
+  margin: 0;
+}
 body {
   background-color: rgb(24, 25, 27);
   color: #fff;
@@ -41,21 +50,23 @@ header {
 
 main {
   margin: 0 auto;
-  max-width: calc(var(--col-min-with) * 7 + (6 * var(--gutter)));
-  max-height: 100px;
+  /* max-width: calc(var(--col-min-with) * 7 + (6 * var(--gutter))); */
 }
 
 .mondrian {
   list-style-type: none;
+  margin: 0 auto;
   padding: 0;
   width: 100%;
   display: grid;
   gap: var(--gutter);
-  grid-template-columns: repeat(auto-fill, minmax(var(--col-min-with), 1fr));
-  grid-auto-flow: dense;
-  grid-auto-rows: 80px;
-  background: #000;
-  justify-content: flex-start;
+  /* grid-template-columns: repeat(auto-fill, minmax(var(--col-min-with), 1fr)); */
+  grid-template-columns: repeat(7, var(--ratio));
+  grid-template-rows: repeat(10, var(--ratio));
+
+  /* grid-auto-flow: dense;
+  grid-auto-rows: 80px; */
+  justify-content: center;
 }
 
 li {
