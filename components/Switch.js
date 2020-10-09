@@ -12,7 +12,7 @@ export class Switch extends HTMLDivElement {
   }
 
   handleChange(event) {
-    window.location.pathname = event.target.classList.contains("button-2D") ? "2D" : "3D";
+    window.location.pathname = event.target.classList.contains("button-2D") ? "2d" : "3d";
   }
 }
 
