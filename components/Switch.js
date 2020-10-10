@@ -1,12 +1,11 @@
-export class Switch extends HTMLDivElement {
+export class Switch extends HTMLElement {
   constructor() {
     super();
   }
 
   connectedCallback() {
-    const s = document.querySelector(".switch");
-    this.button2D = s.querySelector(".button-2D");
-    this.button3D = s.querySelector(".button-3D");
+    this.button2D = this.querySelector(".button-2D");
+    this.button3D = this.querySelector(".button-3D");
     this.button2D.addEventListener("click", this.handleChange.bind(this));
     this.button3D.addEventListener("click", this.handleChange.bind(this));
   }
@@ -16,4 +15,4 @@ export class Switch extends HTMLDivElement {
   }
 }
 
-window.customElements.define("lab-switch", Switch, { extends: "div" });
+window.customElements.define("lab-switch", Switch);

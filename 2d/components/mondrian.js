@@ -1,23 +1,20 @@
-export class Mondrian extends HTMLUListElement {
+export class Mondrian extends HTMLElement {
+  constructor() {
+    super();
+  }
 
-    constructor() {
-        super();
-    }
+  connectedCallback() {
+    this.draw();
+  }
 
-    connectedCallback() {    
-        this.draw();
-    }
+  attributeChangedCallback(name) {
+    if (name == "pieces") this.draw();
+  }
 
-    attributeChangedCallback(name) {
-        if(name == 'pieces')
-            this.draw();
+  draw() {
+    this.innerHTML = "";
+    for (let i = 0; i < this.getAttribute("pieces"); i++) {
+      this.appendChild(document.createElement("lab-mondrian-piece"));
     }
-
-    draw() {
-        this.innerHTML = '';
-        for(let i = 0; i < this.getAttribute('pieces'); i++) {
-            this.appendChild(document.createElement('li', { is: 'lab-mondrian-piece' }))
-        }
-    }
+  }
 }
-

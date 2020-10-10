@@ -56,7 +56,7 @@ main {
   /* max-width: calc(var(--col-min-with) * 7 + (6 * var(--gutter))); */
 }
 
-.mondrian {
+lab-mondrian {
   list-style-type: none;
   margin: 0 auto;
   padding: 0;
@@ -72,11 +72,11 @@ main {
   justify-content: center;
 }
 
-li {
+lab-mondrian-piece {
   background-size: 300% 300%;
 }
 
-li:nth-child(1) {
+lab-mondrian-piece:nth-child(1) {
   --background: var(--blue);
   --background-darker: var(--blue-darker);
 
@@ -84,7 +84,7 @@ li:nth-child(1) {
   background-color: var(--background);
 }
 
-li:nth-child(2) {
+lab-mondrian-piece:nth-child(2) {
   --background: var(--white);
   --background-darker: var(--white-darker);
   grid-column: span 2;
@@ -92,14 +92,14 @@ li:nth-child(2) {
   background-color: var(--background);
 }
 
-li:nth-child(3) {
+lab-mondrian-piece:nth-child(3) {
   grid-column: span 2;
   --background: var(--yellow);
   --background-darker: var(--yellow-darker);
   background-color: var(--background);
 }
 
-li:nth-child(4) {
+lab-mondrian-piece:nth-child(4) {
   grid-column: span 2;
   grid-row: span 4;
   --background: var(--white);
@@ -107,21 +107,21 @@ li:nth-child(4) {
   background-color: var(--background);
 }
 
-li:nth-child(5) {
+lab-mondrian-piece:nth-child(5) {
   grid-column: span 2;
   --background: var(--white);
   --background-darker: var(--white-darker);
   background-color: var(--background);
 }
 
-li:nth-child(6) {
+lab-mondrian-piece:nth-child(6) {
   grid-row: span 2;
   --background: var(--white);
   --background-darker: var(--white-darker);
   background-color: var(--background);
 }
 
-li:nth-child(7) {
+lab-mondrian-piece:nth-child(7) {
   grid-column: span 4;
   grid-row: span 2;
   --background: var(--red);
@@ -129,14 +129,14 @@ li:nth-child(7) {
   background-color: var(--background);
 }
 
-li:nth-child(8) {
+lab-mondrian-piece:nth-child(8) {
   grid-row: span 4;
   --background: var(--white);
   --background-darker: var(--white-darker);
   background-color: var(--background);
 }
 
-li:nth-child(9) {
+lab-mondrian-piece:nth-child(9) {
   grid-column: span 4;
   grid-row: span 4;
   --background: var(--white);
@@ -144,14 +144,14 @@ li:nth-child(9) {
   background-color: var(--background);
 }
 
-li:nth-child(10) {
+lab-mondrian-piece:nth-child(10) {
   grid-column: span 2;
   grid-row: span 2;
   --background: var(--blue);
   --background-darker: var(--blue-darker);
   background-color: var(--background);
 }
-li:nth-child(11) {
+lab-mondrian-piece:nth-child(11) {
   grid-column: span 2;
   grid-row: span 2;
   --background: var(--white);
@@ -159,20 +159,20 @@ li:nth-child(11) {
   background-color: var(--background);
 }
 
-li:nth-child(12) {
+lab-mondrian-piece:nth-child(12) {
   --background: var(--blue);
   --background-darker: var(--blue-darker);
   background-color: var(--background);
 }
 
-li:nth-child(13) {
+lab-mondrian-piece:nth-child(13) {
   grid-column: span 2;
   --background: var(--white);
   --background-darker: var(--white-darker);
   background-color: var(--background);
 }
 
-li:nth-child(14) {
+lab-mondrian-piece:nth-child(14) {
   grid-column: span 4;
   grid-row: span 2;
   --background: var(--yellow);
@@ -180,7 +180,7 @@ li:nth-child(14) {
   background-color: var(--background);
 }
 
-li:nth-child(15) {
+lab-mondrian-piece:nth-child(15) {
   grid-column: span 3;
   grid-row: span 1;
   --background: var(--white);
