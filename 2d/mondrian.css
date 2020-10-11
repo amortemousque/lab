@@ -80,80 +80,80 @@ lab-mondrian-piece:nth-child(1) {
   --background: var(--blue);
   --background-darker: var(--blue-darker);
 
-  grid-row: span 2;
+  grid-row-start: span 2;
   background-color: var(--background);
 }
 
 lab-mondrian-piece:nth-child(2) {
   --background: var(--white);
   --background-darker: var(--white-darker);
-  grid-column: span 2;
-  grid-row: span 2;
+  grid-column-start: span 2;
+  grid-row-start: span 2;
   background-color: var(--background);
 }
 
 lab-mondrian-piece:nth-child(3) {
-  grid-column: span 2;
+  grid-column-start: span 2;
   --background: var(--yellow);
   --background-darker: var(--yellow-darker);
   background-color: var(--background);
 }
 
 lab-mondrian-piece:nth-child(4) {
-  grid-column: span 2;
-  grid-row: span 4;
+  grid-column-start: span 2;
+  grid-row-start: span 4;
   --background: var(--white);
   --background-darker: var(--white-darker);
   background-color: var(--background);
 }
 
 lab-mondrian-piece:nth-child(5) {
-  grid-column: span 2;
+  grid-column-start: span 2;
   --background: var(--white);
   --background-darker: var(--white-darker);
   background-color: var(--background);
 }
 
 lab-mondrian-piece:nth-child(6) {
-  grid-row: span 2;
+  grid-row-start: span 2;
   --background: var(--white);
   --background-darker: var(--white-darker);
   background-color: var(--background);
 }
 
 lab-mondrian-piece:nth-child(7) {
-  grid-column: span 4;
-  grid-row: span 2;
+  grid-column-start: span 4;
+  grid-row-start: span 2;
   --background: var(--red);
   --background-darker: var(--red-darker);
   background-color: var(--background);
 }
 
 lab-mondrian-piece:nth-child(8) {
-  grid-row: span 4;
+  grid-row-start: span 4;
   --background: var(--white);
   --background-darker: var(--white-darker);
   background-color: var(--background);
 }
 
 lab-mondrian-piece:nth-child(9) {
-  grid-column: span 4;
-  grid-row: span 4;
+  grid-column-start: span 4;
+  grid-row-start: span 4;
   --background: var(--white);
   --background-darker: var(--white-darker);
   background-color: var(--background);
 }
 
 lab-mondrian-piece:nth-child(10) {
-  grid-column: span 2;
-  grid-row: span 2;
+  grid-column-start: span 2;
+  grid-row-start: span 2;
   --background: var(--blue);
   --background-darker: var(--blue-darker);
   background-color: var(--background);
 }
 lab-mondrian-piece:nth-child(11) {
-  grid-column: span 2;
-  grid-row: span 2;
+  grid-column-start: span 2;
+  grid-row-start: span 2;
   --background: var(--white);
   --background-darker: var(--white-darker);
   background-color: var(--background);
@@ -166,23 +166,23 @@ lab-mondrian-piece:nth-child(12) {
 }
 
 lab-mondrian-piece:nth-child(13) {
-  grid-column: span 2;
+  grid-column-start: span 2;
   --background: var(--white);
   --background-darker: var(--white-darker);
   background-color: var(--background);
 }
 
 lab-mondrian-piece:nth-child(14) {
-  grid-column: span 4;
-  grid-row: span 2;
+  grid-column-start: span 4;
+  grid-row-start: span 2;
   --background: var(--yellow);
   --background-darker: var(--yellow-darker);
   background-color: var(--background);
 }
 
 lab-mondrian-piece:nth-child(15) {
-  grid-column: span 3;
-  grid-row: span 1;
+  grid-column-start: span 3;
+  grid-row-start: span 1;
   --background: var(--white);
   --background-darker: var(--white-darker);
   background-color: var(--background);

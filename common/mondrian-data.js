@@ -20,14 +20,14 @@ export const pieces = [
   {
     name: "cube4",
     color: 0xffffff,
-    dimension: { w: 2, h: 1 },
-    position: { x: "cube2", y: "cube3" },
+    dimension: { w: 2, h: 4 },
+    position: { x: "cube3", y: 0 },
   },
   {
     name: "cube5",
     color: 0xffffff,
-    dimension: { w: 2, h: 4 },
-    position: { x: "cube3", y: 0 },
+    dimension: { w: 2, h: 1 },
+    position: { x: "cube2", y: "cube3" },
   },
   {
     name: "cube6",
